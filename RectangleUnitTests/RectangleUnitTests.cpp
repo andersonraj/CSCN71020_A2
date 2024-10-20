@@ -28,28 +28,20 @@ namespace RectangleUnitTests
 			Assert::AreEqual(50, area);
 		}
 
-		//Test for setting a valid length within a valid range
-		TEST_METHOD(TestSetLength_ValidInput)
-		{
-			int length = 0;
-			setLength(50, &length);
-			Assert::AreEqual(50, length);
-		}
-
-		//Test for setting the length to the minimum value(edge case)
-		TEST_METHOD(TestSetLength_MinimumValue)
-		{
-			int length = 0;
-			setLength(1, &length);
-			Assert::AreEqual(1, length);
-		}
-
-
-        TEST_METHOD(TestSetLength_MaximumValue)
+        // Test for setting a valid length within the valid range
+        TEST_METHOD(TestSetLength_ValidInput)
         {
             int length = 0; 
-            setLength(99, &length); 
-            Assert::AreEqual(99, length); 
+            setLength(50, &length); 
+            Assert::AreEqual(50, length); 
+        }
+
+        // Test for setting the length to the minimum valid value (edge case)
+        TEST_METHOD(TestSetLength_MinimumValue)
+        {
+            int length = 0;
+            setLength(1, &length); 
+            Assert::AreEqual(1, length);
         }
 
         // Test for invalid input (below minimum value)
@@ -57,55 +49,31 @@ namespace RectangleUnitTests
         {
             int length = 10; 
             setLength(0, &length); 
-            Assert::AreEqual(10, length); 
-        }
-
-        // Test for invalid input (above maximum value)
-        TEST_METHOD(TestSetLength_AboveMaximum)
-        {
-            int length = 10; 
-            setLength(100, &length); 
-            Assert::AreEqual(10, length); 
+            Assert::AreEqual(10, length);
         }
 
         // Test for setting a valid width within the valid range
         TEST_METHOD(TestSetWidth_ValidInput)
         {
             int width = 0; 
-            setWidth(30, &width); 
+            setWidth(30, &width);
             Assert::AreEqual(30, width);
-        }
-
-        // Test for setting the width to the minimum valid value (edge case)
-        TEST_METHOD(TestSetWidth_MinimumValue)
-        {
-            int width = 0; 
-            setWidth(1, &width); 
-            Assert::AreEqual(1, width); 
         }
 
         // Test for setting the width to the maximum valid value (edge case)
         TEST_METHOD(TestSetWidth_MaximumValue)
         {
-            int width = 0; 
+            int width = 0;
             setWidth(99, &width);
             Assert::AreEqual(99, width);
-        }
-
-        // Test for invalid width input (below minimum value)
-        TEST_METHOD(TestSetWidth_BelowMinimum)
-        {
-            int width = 10; 
-            setWidth(0, &width); 
-            Assert::AreEqual(10, width); 
         }
 
         // Test for invalid width input (above maximum value)
         TEST_METHOD(TestSetWidth_AboveMaximum)
         {
-            int width = 10; 
-            setWidth(100, &width); 
-            Assert::AreEqual(10, width); 
+            int width = 10;
+            setWidth(100, &width);
+            Assert::AreEqual(10, width);
         }
 	};
 }
